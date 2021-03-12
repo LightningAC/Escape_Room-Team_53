@@ -24,7 +24,7 @@ int count = 0;
 int start = 0;
 
 //Array that stores the code
-int code[] = {0, 0, 0, 0};
+int code[] = {1, 2, 3, 4};
 
 
 void setup() {
