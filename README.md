@@ -5,3 +5,4 @@ Includes the c++ code for the following puzzles
   - Simon Says
   - Laser Maze
   - LCD Poker
+  - Calibration Puzzle
