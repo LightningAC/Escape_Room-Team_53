@@ -24,7 +24,7 @@ int count = 0;
 int start = 0;
 
 //Array that stores the code
-int code[] = {1, 2, 3, 4};
+int code[] = {3, 1, 4};
 
 
 void setup() {
@@ -49,8 +49,7 @@ void setup() {
 
   //Generate code
   Serial.print("Code: ");
-  for (int i = 0; i < 4; i++) {
-    code[i] = random(10);
+  for (int i = 0; i < 3; i++) {
     Serial.print(code[i]);
   }
   Serial.println();
@@ -207,7 +206,7 @@ void revealCode() {
 
 
   //Display the last value in the code for 5 sec and restart the cycle
-  if (count == 4) {
+  if (count == 3) {
     delay(5000);
     count = 0;
     state = code[count];
