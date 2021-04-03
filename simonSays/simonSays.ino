@@ -7,7 +7,7 @@ int light [15];
 boolean correct;
 boolean repeat;
 #include <Servo.h>
-Servo myservo;
+Servo myServo;
 int lightnumber=0;
 int seed=100;
 void setup() {
@@ -21,16 +21,18 @@ pinMode(13,OUTPUT);
 pinMode(12,OUTPUT);
 pinMode(11,OUTPUT); 
 pinMode(10,OUTPUT);
-pinMode(6,OUTPUT);
+
+
+pinMode(6, OUTPUT); 
 
 pinMode(buttonstart,INPUT_PULLUP);
 pinMode(button2,INPUT_PULLUP);
 pinMode(button3,INPUT_PULLUP);
 pinMode(button4,INPUT_PULLUP);
 pinMode(button5,INPUT_PULLUP);
-myservo.attach(7);
+myServo.attach(7);
 
-myservo.write(90);
+myServo.write(90);
 Serial.begin(9600);
 }
 
@@ -87,7 +89,7 @@ for(int i=1;i<16;i++){
 }
 
 if(repeat){
-         myservo.write(180);
+         myServo.write(180);
          for(int i=0;i<6;i++){
          celebrate();
          }
