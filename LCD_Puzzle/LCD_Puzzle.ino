@@ -18,7 +18,6 @@
 LiquidCrystal myLCD(7,8,9,10,11,12);
 
 int activate = 0;
-int blackjackpassword[] = {1, 2, 3, 4};
 int pokerpassword[] = {6, 5, 9, 7};
 
 void setup() {
@@ -69,16 +68,34 @@ void loop() {
     }
   }
   // checks if the user can guess the poker puzzle
-  checkpassword(pokerpassword, 2, 4);
+  checkpassword(pokerpassword, 1, 4);
   // will run indefinitely if the user guesses correctly 
   int complete = 1;
   while (complete == 1) {
     myLCD.clear();
     myLCD.setCursor(0,0);
-    myLCD.print("Final code is");
+    myLCD.print("Unlock the code");
     myLCD.setCursor(0,1);
-    myLCD.print("0738");
-    delay(50000); 
+    myLCD.print("w/ the following");
+    delay(3000);
+    myLCD.clear();
+    myLCD.setCursor(0,0);
+    myLCD.print("Number from");
+    myLCD.setCursor(0,1);
+    myLCD.print("calibration");
+    delay(3000);
+    myLCD.clear();
+    myLCD.setCursor(0,0);
+    myLCD.print("Number from");
+    myLCD.setCursor(0,1);
+    myLCD.print("flashing light");
+    delay(3000);
+    myLCD.clear();
+    myLCD.setCursor(0,0);
+    myLCD.print("& sum of numbers");
+    myLCD.setCursor(0,1);
+    myLCD.print("from lazer maze");
+    delay(3000); 
   }
 }
 
@@ -92,7 +109,7 @@ void checkpassword(int password[], int storyline, int arraysize) {
     int count = 0;
     int temp = storyline;
     // displays the hints 
-    if (temp == 2)
+    if (temp == 1)
     {
       myLCD.setCursor(0,0);
       myLCD.write("Go take a look");
