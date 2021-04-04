@@ -68,7 +68,7 @@ void loop() {
     Serial.print("Calibrated value: ");
     Serial.println(roomLight);
   }
-  if (photoValue > roomLight + 10 && start > 10) {
+  if (photoValue > roomLight + 70 && start > 10) {
     solved = true;
     Serial.println("Puzzle Solved");
   }
