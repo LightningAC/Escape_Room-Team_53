@@ -11,6 +11,34 @@ int sensorVal;
 LiquidCrystal myLCD(2,3,4,5,6,7);
 int value1, value2, value3, loc1, loc2,loc3;
 bool isCorrect=false;
+
+class tilt{
+  public:
+    tilt(){
+      check=false;
+      }
+    bool check;
+    
+    void checkIt(){
+        sensorVal=digitalRead(tiltSwitch);
+        if(sensorVal==LOW){
+          check= true;
+         }
+       else{
+          check=false;
+           }
+        };
+  
+  private:
+    int sensorVal;
+};
+
+tilt tiltSw=tilt();
+
+
+
+
+
 void setup() {
   pinMode(potOne, INPUT);
   pinMode(potTwo, INPUT);
@@ -22,14 +50,15 @@ void setup() {
   
   myLCD.begin(16,2);
   myLCD.clear();
-  myLCD.print("Check Sudoku");
+  myLCD.print("Check Sudoku:");
   Serial.begin(9600);
   Serial.print(analogRead(tiltSwitch));
 
 }
 
 void loop() {
-  if(!tiltIsOn()){
+  tiltSw.checkIt();
+  if(tiltSw.check){
   value1=analogRead(potOne);
   
   value2=analogRead(potTwo);
@@ -82,16 +111,5 @@ int getSpot(int val){
   else{
     return 3;
   }
-
-}
-
-bool tiltIsOn(){
-sensorVal=digitalRead(tiltSwitch);
-if(sensorVal==HIGH){
-  return true;
-}
-else{
-  return false;
-}
 
 }
